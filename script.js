@@ -30,27 +30,13 @@ cep?.addEventListener('blur', (e) => {
     .catch();
 })
 
-var checkboxes = document.getElementsByName('sabor')
-
-var result = '';
-
-let finalizar = document.querySelector('#finalizar');
-
-let sabores = document.querySelector('#sabores')
-
-finalizar.addEventListener('click', (e) => {
+var dados = (results) => {
+    let hello = document.querySelector('#hello')
     
-    e.preventDefault
+    for (let result in results) {
+        var hi = document.createElement('p')
+        hi = result.nome
 
-    for (var i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-        result += checkboxes[i].value 
-        + " " + " Sabor, ";
+        hello.appendChild(hi)
     }
-    sabores.innerText = checkboxes[i].value;
-}
-})
-
-function showChoices() {
-
 }
