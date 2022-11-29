@@ -1,34 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedido | Finalizar</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Selecione sua pizza:</h1>
+    <div class="title">
+        <h1>Selecione sua pizza:</h1>
+    </div>
     <form action="pizza" method="post">
-        <h2>Tamanho: </h2>
-        <select name="tamanho" id="tamanho">
-            <option value="p">P (4 fatias) - R$29,90</option>
-            <option value="m">M (6 fatias) - R$49,90</option>
-            <option value="g">G (8 fatias) - R$69,90</option>
-            <option value="gg">GG (12 fatias) - R$99,90</option>
-        </select>
-        <h2>Sabores: </h2>
-       <input type="checkbox" name="sabor" id="calabresa" value="calabresa"> <label for="calabresa">Calabresa</label>
-       <input type="checkbox" name="sabor" id="marguerita" value="marguerita"> <label for="marguerita">Marguerita</label>
-       <input type="checkbox" name="sabor" id="mussarela" value="mussarela"> <label for="mussarela">Mussarela</label>
-       <input type="checkbox" name="sabor" id="portuguresa" value="portuguesa"> <label for="portuguesa">Portuguesa</label>
-       <input type="checkbox" name="sabor" id="alcatra" value="alcatra"> <label for="alcatra">Alcatra</label>
-       <input type="checkbox" name="sabor" id="lombinho" value="lombinho"> <label for="lombinho">Lombinho</label>
-       <h2>Entrega: </h2>
-       <input type="radio" name="entrega" id="entrega"> <label for="entrega">Entrega</label>
-       <input type="radio" name="entrega" id="retirada"> <label for="retirada">Retirada</label>
-       <input type="submit" value="Finalizar" id="finalizar">
-       <p id="sabores"></p>
+        <div class="inline tamanho">
+            <h2>Tamanho: </h2>
+            <select name="tamanho" id="tamanho">
+                <option value="p">P (4 fatias) - R$29,90</option>
+                <option value="m">M (6 fatias) - R$49,90</option>
+                <option value="g">G (8 fatias) - R$69,90</option>
+                <option value="gg">GG (12 fatias) - R$99,90</option>
+            </select>
+        </div>
+        <div class="inline sabores">
+            <h2>Sabores: </h2>
+            <input type="checkbox" name="sabor" id="calabresa" value="calabresa"> <label for="calabresa">Calabresa</label>
+            <input type="checkbox" name="sabor" id="marguerita" value="marguerita"> <label for="marguerita">Marguerita</label>
+            <input type="checkbox" name="sabor" id="mussarela" value="mussarela"> <label for="mussarela">Mussarela</label>
+            <input type="checkbox" name="sabor" id="portuguresa" value="portuguesa"> <label for="portuguesa">Portuguesa</label>
+            <input type="checkbox" name="sabor" id="alcatra" value="alcatra"> <label for="alcatra">Alcatra</label>
+            <input type="checkbox" name="sabor" id="lombinho" value="lombinho"> <label for="lombinho">Lombinho</label>
+        </div>
+        <div class="inline entrega">
+            <h2>Entrega: </h2>
+            <input type="radio" name="entrega" id="entrega" value="entrega"> <label for="entrega">Entrega</label>
+            <input type="radio" name="entrega" id="retirada" value="retirada"> <label for="retirada">Retirada</label>
+        </div>
+       <input type="submit" value="Finalizar" id="finalizar" class="cadastrar-btn">
     </form>
 </body>
 </html>
