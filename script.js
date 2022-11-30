@@ -30,13 +30,9 @@ cep?.addEventListener('blur', (e) => {
     .catch();
 })
 
-var dados = (results) => {
-    let hello = document.querySelector('#hello')
+async function showData() {
+    const response = await fetch("/api/produtos").then(res => res.json())
     
-    for (let result in results) {
-        var hi = document.createElement('p')
-        hi = result.nome
+    console.log(response)
 
-        hello.appendChild(hi)
-    }
 }
