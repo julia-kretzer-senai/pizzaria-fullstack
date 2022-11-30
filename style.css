@@ -175,7 +175,6 @@ input[type=checkbox], input[type=radio] {
     margin-left: 25vw;
 }
 
-
 .produto {
     background-color: #75474D;
     color: #FBF9FF;
@@ -183,4 +182,9 @@ input[type=checkbox], input[type=radio] {
     width: 15vw;
     border-radius: 5px;
     font-size: 1.3rem;
+}
+
+#fim-title {
+    color: #75474D;
+    margin-top: 30vh;
 }
