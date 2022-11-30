@@ -37,15 +37,15 @@ app.get('/pedidos', (req,res) => {
     })
 })
 
-app.get('/produtos', (req, res) => {
+app.get('/api/produtos', (req, res) => {
     sql.query('select * from produto', (err,results,fields) => {
         res.json(results)
     })
 })
 
-// app.get('/produtos', (req,res) => [
-//     res.sendFile(__dirname + '/consulta-produtos.html')
-// ])
+app.get('/produtos', (req,res) => [
+    res.sendFile(__dirname + '/produtos.html')
+])
 
 app.get('/cadastrar-produto', (req,res) => {
     res.sendFile(__dirname + '/cadastrar-produto.html')
@@ -62,12 +62,12 @@ app.post('/cadastro', (req,res) => {
     res.redirect('/finalizar')
 })
 
-app.post('/produtos', (req,res) => {
-    sql.query('insert into produto (cod_barras, nome, tipo, quantidade) values(?,?,?,?)',
-    [req.body.codBarras, req.body.nomeProduto, req.body.tipo, req.body.quantidade]);
+// app.post('/produtos', (req,res) => {
+//     sql.query('insert into produto (cod_barras, nome, tipo, quantidade) values(?,?,?,?)',
+//     [req.body.codBarras, req.body.nomeProduto, req.body.tipo, req.body.quantidade]);
 
-    res.redirect('/consulta')
-})
+//     res.redirect('/fim')
+// })
 
 var sabor = []
 var sabor1, sabor2, sabor3, sabor4, valorTotal
@@ -90,9 +90,13 @@ app.post('/pizza', (req,res) => {
     } else {
         valorTotal = 99.9
     }
-    sql.query('insert into pedido (valor, retiradaEntrega, sabores, tamanho) values(?,?,?,?,?)',
+    sql.query('insert into pedido (valor, retiradaEntrega, sabores, tamanho) values(?,?,?,?)',
     [valorTotal, req.body.entrega, sabores, tamanho])
     console.log(sabor1, sabor2, sabor3, sabor4) // funcionando, precisa inserir no banco de dados
+})
+
+app.get('/fim', (req,res) => {
+    res.sendFile(__dirname + '/fim.html')
 })
 
 app.listen(port, () => {
