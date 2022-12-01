@@ -31,10 +31,14 @@ app.get('/cliente', (req,res) => {
     res.sendFile(__dirname + '/cadastrar-cliente.html')
 })
 
-app.get('/pedidos', (req,res) => {
+app.get('/api/pedidos', (req,res) => {
     sql.query('select * from pedido', (err,results,fields) => {
         res.json(results)
     })
+})
+
+app.get('/pedidos', (req,res) => {
+    res.sendFile(__dirname + '/pedidos.html')
 })
 
 app.get('/api/produtos', (req, res) => {
@@ -62,12 +66,16 @@ app.post('/cadastro', (req,res) => {
     res.redirect('/finalizar')
 })
 
-// app.post('/produtos', (req,res) => {
-//     sql.query('insert into produto (cod_barras, nome, tipo, quantidade) values(?,?,?,?)',
-//     [req.body.codBarras, req.body.nomeProduto, req.body.tipo, req.body.quantidade]);
+app.post('/finalizar', (req,res) => {
+    res.redirect('/fim')
+})
 
-//     res.redirect('/fim')
-// })
+app.post('/produtos', (req,res) => {
+    sql.query('insert into produto (cod_barras, nome, tipo, quantidade) values(?,?,?,?)',
+    [req.body.codBarras, req.body.nomeProduto, req.body.tipo, req.body.quantidade]);
+
+    res.redirect('/fim')
+})
 
 var sabor = []
 var sabor1, sabor2, sabor3, sabor4, valorTotal
@@ -93,10 +101,22 @@ app.post('/pizza', (req,res) => {
     sql.query('insert into pedido (valor, retiradaEntrega, sabores, tamanho) values(?,?,?,?)',
     [valorTotal, req.body.entrega, sabores, tamanho])
     console.log(sabor1, sabor2, sabor3, sabor4) // funcionando, precisa inserir no banco de dados
+    res.redirect('/fim')
 })
 
 app.get('/fim', (req,res) => {
     res.sendFile(__dirname + '/fim.html')
+})
+
+app.post('/update', (req,res) => {
+    sql.query('update produto set nome = ?, tipo = ?, quantidade = ? where cod_barras = ?', 
+    [req.body.nomeProduto, req.body.tipo, req.body.quantidade, req.body.codBarras])
+    res.redirect('/fim')
+})
+
+app.post('/delete', (req,res) => {
+    sql.query('delete from produto where cod_barras = ?', req.body.codBarras)
+    res.redirect('/fim')
 })
 
 app.listen(port, () => {
