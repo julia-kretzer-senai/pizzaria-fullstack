@@ -188,3 +188,114 @@ input[type=checkbox], input[type=radio] {
     color: #75474D;
     margin-top: 30vh;
 }
+
+#main-produtos {
+    display: flex;
+    align-items: center;
+}
+
+table {
+    border: 2px solid #75474D;  
+    align-self: center;
+    width: 60vw;
+    margin-left: 20vw;
+    text-align: center;
+    background-color: #FBF9FF;
+}
+
+td, th {
+    border: 1px solid #75474D;
+    height: 5vh;
+    vertical-align: middle;
+}
+
+th {
+    font-weight: 600;
+}
+
+#produtos-body {
+    overflow: visible;
+}
+
+.right-column {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5vw;
+    align-items: center;
+    height: 100%;
+}
+
+.forms-produto {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#produtos-table {
+    width: 50vw;
+    margin-left: 3vw;
+}
+
+.produtosBtn {
+    width: 20vw;
+    height: 11vh;
+    background-color: #75474D;
+    color: #FBF9FF;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5vh;
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+}
+
+.produtosBtn:hover {
+    cursor: pointer;
+    background-color: #AA767C;
+}
+
+.forms-produto label {
+    width: 100%;
+}
+
+.forms-produto input {
+    padding-left: 1vw;
+    width: 20vw;
+    border: none;
+    height: 5vh;
+    border-radius: 5px;
+    background-color: #FBF9FF;
+    color: #75474D;
+    font-family: 'Montserrat';
+    margin-top: 2vh;
+}
+
+#atualizar {
+    border: solid 2px #75474D;    
+    font-weight: 600;
+    width: 15vw;
+    height: 6vh;
+    margin-left: 14vw;
+    padding-left: 0;
+    margin-bottom: 2vh;
+}
+
+#atualizar:hover {
+    cursor: pointer;
+    color: #FBF9FF;
+    background-color: #AA767C;
+}
+
+#deletar {
+    border: solid 2px #75474D;    
+    font-weight: 600;
+    width: 15vw;
+    height: 6vh;
+    padding-left: 0;
+}
+
+#deletar:hover {
+    cursor: pointer;
+    color: #FBF9FF;
+    background-color: #AA767C;
+}
