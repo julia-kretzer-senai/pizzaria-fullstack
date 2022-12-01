@@ -6,15 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body onload="showData()">
-    <h1>Hello World</h1>
-    <div id="hello"></div>
-    <form action="update" method="post">
-        <input type="submit" value="Atualizar produto">
-    </form>
-    <form action="delete" method="post">
-        <input type="submit" value="Deletar">
-    </form>
+<body onload="showProdutos()" id="produtos-body">
+    <div class="title">
+        <h1>Produtos</h1>
+    </div>
+    <main id="main-produtos" class="two-columns">
+        <table id="produtos-table">
+            <thead>
+                <tr>
+                    <th>Código de barras</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-produtos">
+    
+            </tbody>
+        </table>
+        <div class="right-column">
+            <div>
+                <button id="update" class="produtosBtn">Atualizar dados do produto</button>
+                <form action="update" method="post" style="display:none" id="update-form" class="forms-produto">
+                    <label for="codBarras">Digite os dados corrigidos do produto que deseja alterar: </label>
+                    <input type="text" name="codBarras" id="codBarrasUpdate" placeholder="código de barras">
+                    <input type="text" name="nomeProduto" id="nomeProdutoUpdate" placeholder="nome do produto">
+                    <input type="text" name="tipo" id="tipoUpdate" placeholder="tipo do produto">
+                    <input type="number" name="quantidade" id="quantidadeUpdate" placeholder="quantidade">
+                    <input type="submit" value="Atualizar" id="atualizar">
+                </form>
+            </div>
+            <div>
+                <button id="delete" class="produtosBtn">Deletar produto</button>
+                <form action="delete" method="post" style="display:none" id="delete-form" class="forms-produto">
+                    <label for="codBarras">Digite o código de barras do produto que deseja deletar:</label>
+                    <input type="text" name="codBarras" id="codBarrasDelete" placeholder="código de barras">
+                    <input type="submit" value="Deletar" id="deletar">
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
